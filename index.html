@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="nl"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Nadia Andries · Team</title>
+<meta name="theme-color" content="#5B2743">
+<meta name="robots" content="noindex,nofollow">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<style>
+@font-face{font-family:Outfit;font-weight:300;src:url(fonts/outfit-latin-300-normal.woff2) format("woff2");font-display:swap}
+@font-face{font-family:Outfit;font-weight:400;src:url(fonts/outfit-latin-400-normal.woff2) format("woff2");font-display:swap}
+@font-face{font-family:Manrope;font-weight:400;src:url(fonts/manrope-latin-400-normal.woff2) format("woff2");font-display:swap}
+@font-face{font-family:Manrope;font-weight:600;src:url(fonts/manrope-latin-600-normal.woff2) format("woff2");font-display:swap}
+:root{--bg:#FAF8F5;--card:#fff;--mist:#F1EAEE;--aub:#5B2743;--ink:#191919;--mute:#6f6168;--line:#e6dde2;--red:#DA0821;--ok:#3f7d5a;--mid:#b07d2b}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 15px/1.55 Manrope,system-ui,sans-serif;padding-block:0 40px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:760px;margin:0 auto}
+header{padding:calc(24px + env(safe-area-inset-top,0px)) 0 8px}
+.brand{font:700 13px Manrope;letter-spacing:.22em;text-transform:uppercase;color:var(--aub)}
+h1{font:300 34px/1.15 Outfit,sans-serif;margin:6px 0 4px;color:var(--aub);text-wrap:balance}
+.sub{color:var(--mute);margin:0}
+nav{display:flex;gap:6px;margin:18px 0;overflow-x:auto;padding-bottom:4px}
+nav button{font:600 13px Manrope;border:1px solid var(--line);background:var(--card);color:var(--aub);padding:9px 14px;border-radius:999px;white-space:nowrap;cursor:pointer}
+nav button.on{background:var(--aub);color:#fff;border-color:var(--aub)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;min-width:0}
+.k{font:300 34px/1 Outfit;color:var(--aub)}
+.l{font-size:12px;color:var(--mute);margin-top:6px;text-transform:uppercase;letter-spacing:.08em}
+h2{font:400 22px Outfit;color:var(--aub);margin:26px 0 10px}
+.mist{background:var(--mist);border-color:transparent}
+.scroll{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:13.5px}
+th{font:600 11px Manrope;text-transform:uppercase;letter-spacing:.08em;color:var(--mute);text-align:left;padding:8px 8px;border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:9px 8px;border-bottom:1px solid var(--line);white-space:nowrap}
+td.c,th.c{text-align:center}
+.pill{display:inline-block;font:600 11px Manrope;padding:3px 9px;border-radius:999px}
+.a{background:#e3f0e8;color:var(--ok)}.s{background:#f6ecd6;color:var(--mid)}.i{background:#f1e4e7;color:var(--red)}
+.r{display:inline-block;width:26px;height:26px;line-height:26px;border-radius:50%;font:600 12px Manrope;color:#fff;text-align:center}
+.rS{background:#d98b3a}.rG{background:#e0b72e}.rP{background:#4b8f5f}
+.note{font-size:12.5px;color:var(--mute)}
+svg text{font:11px Manrope;fill:var(--mute)}
+#lock{max-width:380px;margin:18vh auto 0;text-align:center}
+#lock input{width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:12px;font:400 16px Manrope;margin:16px 0 10px;background:#fff}
+#lock button{width:100%;padding:13px;border:0;border-radius:12px;background:var(--aub);color:#fff;font:600 15px Manrope;cursor:pointer}
+#err{color:var(--red);font-size:13px;min-height:18px;margin-top:8px}
+footer{margin-top:36px;font-size:12px;color:var(--mute)}
+.sec{display:none}.sec.on{display:block}
+</style></head><body><div class="wrap">
+<div id="lock"><div class="brand">Nadia Andries</div><h1>Welkom terug</h1><p class="sub">Vul je wachtwoord in om je team te zien.</p>
+<form id="f"><input id="pw" type="password" autocomplete="current-password" placeholder="Wachtwoord" autofocus><button>Openen</button><label class="note"><input id="rem" type="checkbox" checked style="width:auto;margin:12px 6px 0 0"> Onthoud op dit toestel</label><div id="err"></div></form></div>
+<div id="app" hidden></div>
+<footer id="foot" hidden>Nadia Andries · onafhankelijk Young Living brand partner. Cijfers komen uit het Virtual Office en zijn geen inkomensbelofte.</footer>
+</div>
+<script>
+const BLOB={"s": "yg942SG1mGmfUwWfdhZnUA==", "i": "InLJ8Fk4iKjywb1l", "n": 250000, "c": "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"};
+const $=s=>document.querySelector(s);
+const b64=s=>Uint8Array.from(atob(s),c=>c.charCodeAt(0));
+async function dec(pw){const k=await crypto.subtle.importKey("raw",new TextEncoder().encode(pw),"PBKDF2",false,["deriveKey"]);
+ const key=await crypto.subtle.deriveKey({name:"PBKDF2",salt:b64(BLOB.s),iterations:BLOB.n,hash:"SHA-256"},k,{name:"AES-GCM",length:256},false,["decrypt"]);
+ const p=await crypto.subtle.decrypt({name:"AES-GCM",iv:b64(BLOB.i)},key,b64(BLOB.c));return JSON.parse(new TextDecoder().decode(p))}
+$("#f").onsubmit=async e=>{e.preventDefault();const pw=$("#pw").value.trim();$("#err").textContent="";
+ try{const D=await dec(pw);try{if($("#rem").checked)localStorage.setItem("na-pw",pw)}catch(_){}show(D)}catch(_){$("#err").textContent="Dat wachtwoord klopt niet."}};
+(async()=>{try{const pw=localStorage.getItem("na-pw");if(pw){show(await dec(pw))}}catch(_){try{localStorage.removeItem("na-pw")}catch(__){}}})();
+const MN=["jan","feb","mrt","apr","mei","jun","jul","aug","sep","okt","nov","dec"];
+const fd=s=>{if(!s)return"–";const[y,m,d]=s.split("-");return d?`${+d} ${MN[+m-1]} ${y}`:`${MN[+m-1]} ${y}`};
+const fn=n=>Math.round(n).toLocaleString("nl-BE");
+const RN={S:"Silver",G:"Gold",P:"Platinum"};
+function status(x,asof){if(!x.last)return["i","Nog niet besteld",9999];const d=(new Date(asof)-new Date(x.last))/864e5;
+ return d<=62?["a","Actief",d]:d<=200?["s","Rustig",d]:["i","Inactief",d]}
+function chart(S){const W=700,H=220,p=34,mx=Math.max(...S.map(s=>s.ogv))*1.1;
+ const t0=new Date(S[0].d+"-01"),t1=new Date(S[S.length-1].d+"-01");
+ const X=s=>p+(new Date(s+"-01")-t0)/(t1-t0)*(W-2*p),Y=v=>H-p-(v/mx)*(H-2*p);
+ let g="";for(let i=0;i<=4;i++){const v=mx/1.1*i/4*1.1/1.0;const y=Y(mx*i/4);g+=`<line x1="${p}" x2="${W-p}" y1="${y}" y2="${y}" stroke="#e6dde2"/><text x="4" y="${y+4}">${Math.round(mx*i/4/1000)}k</text>`}
+ const pts=S.map(s=>`${X(s.d)},${Y(s.ogv)}`).join(" ");
+ const yrs=[];for(let y=t0.getFullYear();y<=t1.getFullYear();y+=3)yrs.push(y);
+ return `<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="OGV per momentopname">${g}<polyline points="${pts}" fill="none" stroke="#5B2743" stroke-width="2.5"/>${S.map(s=>`<circle cx="${X(s.d)}" cy="${Y(s.ogv)}" r="4" fill="#5B2743"/>`).join("")}${yrs.map(y=>`<text x="${X(y+"-01")}" y="${H-10}" text-anchor="middle">${y}</text>`).join("")}</svg>`}
+function show(D){$("#lock").hidden=true;$("#app").hidden=false;$("#foot").hidden=false;
+ const L=D.l1.map(x=>({...x,st:status(x,D.asof)})).sort((a,b)=>a.st[2]-b.st[2]);
+ const act=L.filter(x=>x.st[0]=="a").length,rus=L.filter(x=>x.st[0]=="s").length,ina=L.filter(x=>x.st[0]=="i").length;
+ const cur=D.snaps[D.snaps.length-1],top=D.snaps.reduce((a,b)=>b.ogv>a.ogv?b:a);
+ const rkRows=Object.entries(D.ranks).map(([n,v])=>`<tr><td>${n}</td>${v.map(c=>`<td class="c">${c?`<span class="r r${c}" title="${RN[c]}">${c}</span>`:"·"}</td>`).join("")}</tr>`).join("");
+ const l1Rows=L.map(x=>`<tr><td>${x.n.split(", ").reverse().join(" ").split(" ").map(w=>w.length<=4&&w==w.toUpperCase()&&!/[AEIOU]/.test(w.slice(1))?w:w.charAt(0).toUpperCase()+w.slice(1).toLowerCase()).join(" ")}</td><td>${fd(x.sign)}</td><td>${fd(x.last)}</td><td class="c"><span class="pill ${x.st[0]}">${x.st[1]}</span></td></tr>`).join("");
+ $("#app").innerHTML=`<header><div class="brand">Nadia Andries</div><h1>Jouw team in cijfers</h1><p class="sub">Stand van ${fd(D.asof)} · ${D.nov.members.toLocaleString("nl-BE")} mensen in je organisatie</p></header>
+ <nav>${["Overzicht","Leiders","Eigen team","Over de cijfers"].map((t,i)=>`<button data-t="${i}" class="${i?"":"on"}">${t}</button>`).join("")}</nav>
+ <section class="sec on" id="t0"><div class="grid">
+  <div class="card"><div class="k">${fn(cur.ogv)}</div><div class="l">OGV okt 2026</div></div>
+  <div class="card"><div class="k">${cur.lead}</div><div class="l">Leiders (Silver+) okt 2026</div></div>
+  <div class="card"><div class="k">${act}</div><div class="l">Eigen enrolments actief</div></div>
+  <div class="card"><div class="k">${fn(top.ogv)}</div><div class="l">Hoogste meting · ${fd(top.d)}</div></div></div>
+  <h2>Groepsvolume door de jaren</h2><div class="card"><div class="scroll">${chart(D.snaps)}</div><p class="note">OGV = volume van je hele organisatie in die maand. Dit zijn momentopnames; de maand-per-maand reeks wordt aangevuld.</p></div>
+  <div class="card mist" style="margin-top:12px"><b>In één zin</b><br>Je organisatie groeide van 2013 tot ${fd(top.d)} naar ${fn(top.ogv)} OGV en staat nu op ${fn(cur.ogv)} met ${cur.lead} leiders, waarvan je zelf ${act} van je ${L.length} persoonlijke enrolments actief hebt.</div></section>
+ <section class="sec" id="t1"><h2>Wie was Silver, Gold of Platinum?</h2><div class="card"><div class="scroll"><table><tr><th>Naam</th>${D.dates.map(d=>`<th class="c">${fd(d)}</th>`).join("")}</tr>${rkRows}</table></div>
+  <p class="note"><span class="r rS">S</span> Silver · <span class="r rG">G</span> Gold · <span class="r rP">P</span> Platinum · · niet in de Leaders-lijst. Per kolom een momentopname; de exacte maand van elke rangwissel volgt.</p></div></section>
+ <section class="sec" id="t2"><h2>Wie jij persoonlijk enrolde</h2><div class="grid" style="margin-bottom:12px">
+  <div class="card"><div class="k">${act}</div><div class="l">Actief (bestelling ≤ 2 mnd)</div></div><div class="card"><div class="k">${rus}</div><div class="l">Rustig (2–6 mnd)</div></div><div class="card"><div class="k">${ina}</div><div class="l">Inactief (&gt; 6 mnd of nooit)</div></div></div>
+  <div class="card"><div class="scroll"><table><tr><th>Naam</th><th>Aangesloten</th><th>Laatste bestelling</th><th class="c">Status</th></tr>${l1Rows}</table></div></div></section>
+ <section class="sec" id="t3"><h2>Over de cijfers</h2><div class="card"><p>Alles komt uit je Virtual Office. Eigen enrolments zijn de 27 mensen op niveau 1 die nu in je organisatie staan; wie eerder uitviel, staat daar niet meer in.</p><p>Status is berekend op de datum van de laatste bestelling. Rangen komen uit de maandelijkse Leaders-lijst.</p><p class="note">Nadia Andries is onafhankelijk Young Living brand partner. Dit overzicht is geen inkomensbelofte of gezondheidsclaim.</p></div></section>`;
+ document.querySelectorAll("nav button").forEach(b=>b.onclick=()=>{document.querySelectorAll("nav button").forEach(x=>x.classList.toggle("on",x==b));document.querySelectorAll(".sec").forEach((s,i)=>s.classList.toggle("on",i==b.dataset.t))})}
+if("serviceWorker"in navigator)navigator.serviceWorker.register("sw.js").catch(()=>{});
+</script></body></html>
